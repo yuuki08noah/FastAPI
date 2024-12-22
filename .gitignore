@@ -1,0 +1,8 @@
+lib/
+bin/
+include/
+share/
+*.pyc
+__pycache__/
+lib/python3.12/site-packages/tensorflow/
+lib/python3.12/site-packages/clang/

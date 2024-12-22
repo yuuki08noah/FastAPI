@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src={{ url_for('static', path='travelers_statistics.png') }} width="400" style="margin: auto;">
+    <form action="/aero/prediction" method="post">
+        <legend>미래의 여행객 수 예측하기</legend>
+        <input type="text" placeholder="년도를 입력하세요" name="year" enctype="application/x-www-form-urlencoded">
+        <input type="submit">
+    </form>
+    <h3 class="2024"> {{year}} 년 여행객 수 AI 예측 : 국내선 {{ prediction[0][0] }}만명 국제선 {{prediction[0][1]}}만명 </h3>
+    <h2>노선 상위 5개</h2>
+    {% for routes in best %}
+        <b>{{ routes[0] }}</b>  여객수 {{ routes[1] }} <br>
+    {% endfor %}
+</body>
+</html>
